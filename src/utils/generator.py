@@ -1,5 +1,7 @@
 import tensorflow as tf
 from tensorflow.keras.preprocessing.sequence import pad_sequences
+from tensorflow.keras.utils import to_categorical
+import numpy as np
 
 def create_sequences(tokenizer, max_length, description_list, feature, vocab_size):
     input_img, input_seq, output_word = [], [], []
