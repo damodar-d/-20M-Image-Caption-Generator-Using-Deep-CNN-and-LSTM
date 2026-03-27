@@ -53,3 +53,19 @@ def dic_to_list(descriptions):
 def max_length_descriptions(descriptions):
     desc_list = dic_to_list(descriptions)
     return max(len(d.split()) for d in desc_list)
+
+
+import requests
+from constants import pre_trained_weights_saving_path
+url = "https://storage.googleapis.com/tensorflow/keras-applications/xception/xception_weights_tf_dim_ordering_tf_kernels.h5"
+def fetch_pretrained_xception_weights():
+    response = requests.get(url, stream = True)
+
+    with open(pre_trained_weights_saving_path,'wb') as f:
+        for chunk in response.iter_content(chunk_size = 8192):
+            if chunk: 
+                f.write(chunk)
+
+    print("Download Complete")
+
+fetch_pretrained_xception_weights()
