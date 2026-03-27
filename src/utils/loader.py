@@ -1,4 +1,5 @@
 import os
+from constants import dataset_images_dir_name
 
 def load_doc(filename):
     file = open(filename, 'r')

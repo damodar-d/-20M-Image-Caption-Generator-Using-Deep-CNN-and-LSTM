@@ -1,4 +1,5 @@
 from tensorflow.keras.preprocessing.text import Tokenizer
+from helpers import dic_to_list
 
 def create_tokenizer(descriptions):
     desc_list = dic_to_list(descriptions)
