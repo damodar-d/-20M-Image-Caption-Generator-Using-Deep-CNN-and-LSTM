@@ -11,6 +11,7 @@ from ..utils.tokenizer import create_tokenizer
 from pickle import dump
 
 
+max_length = 32
 train_images = load_photos(token_filename)
 token_filename = dataset_text_dir_name + '/Flickr8k.token.txt'
 
