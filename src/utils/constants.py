@@ -1,16 +1,19 @@
-from helpers import download_with_retry
 
+from pathlib import Path
 
-dataset_text_dir_name = "data/processed/training"
-dataset_images_dir_name = "data/raw"
+BASE_DIR = Path(__file__).parent.parent.parent
 
-gen_cleaned_descriptions_path = 'generated/descriptions' 
+print("Base Directory: ",BASE_DIR)
 
-token_filename = dataset_text_dir_name + '/Flickr_8k.trainImages.txt'
+dataset_text_dir_name = Path.joinpath(BASE_DIR , "data/processed/training")
+dataset_images_dir_name = Path.joinpath(BASE_DIR , "data/raw")
 
-weights_url = "file:///Users/abhiramdeshpande/Desktop/development/ML Projects/Image Caption Generator/xception_weights.h5"
-weights_path = download_with_retry(weights_url, "xception_weights.h5")
+gen_cleaned_descriptions_path = Path.joinpath(BASE_DIR , 'generated/descriptions')
 
+# token_filename = dataset_text_dir_name + '/Flickr_8k.trainImages.txt'
 
-weights_saving_path = 'models/final'
-print(weights_path)
+pre_trained_weights_saving_path = Path.joinpath(BASE_DIR , "pre-trained/xception/xception.h5")
+
+final_weights_saving_path = Path.joinpath(BASE_DIR , 'models/final')
+
+print(pre_trained_weights_saving_path)
